@@ -41,7 +41,7 @@ This is a simple React project that allows you to create and display business ca
 
 2. Navigate to the project directory:
    ```bash
-   cd server-card-ofek
+   cd server---card---ofek
    ```
 3. Install the dependencies:
    ```bash
