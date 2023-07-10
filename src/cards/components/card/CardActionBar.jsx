@@ -10,7 +10,6 @@ import CardDeleteDialog from "./CardDeleteDialog";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../../routes/routesModel";
 import { useSnack } from "../../../providers/SnackbarProvider";
-import useCards from "../../hooks/useCards";
 
 export default function CardActionBar({
   handleDelete,
@@ -18,12 +17,12 @@ export default function CardActionBar({
   cardLikes,
   cardId,
   user_id,
+  phone
 
 }) {
   const snack = useSnack();
   const { user } = useUser();
   const navigate = useNavigate();
-  const { handleGetCard, value:{card} } = useCards();
   const [isDialogOpen, setDialog] = useState(false);
   const [isLiked, setLike] = useState(
     () => !!cardLikes?.find(id => id === user.id)
@@ -39,12 +38,9 @@ export default function CardActionBar({
     await handleLike(cardId);
   }
 
-  let phoneNumber="";
+  const phoneNumber="tel:"+phone;
 
-  const getPhoneNumber = (number) => {
-   phoneNumber = "";
-    phoneNumber = "tel:"+number;
-  }
+
  
   
 
@@ -70,14 +66,10 @@ export default function CardActionBar({
         </Box>
 
         <Box>
-        <IconButton
+        <IconButton 
            aria-label="Call"
-           onClick={()=>{
-            handleGetCard(cardId)
-            card&&getPhoneNumber(card.phone)
-            card&&alert("contact us on "+phoneNumber)
-           }}>
-          <CallIcon/>
+        >
+          <a href={phoneNumber} ><CallIcon/></a>
           </IconButton>
 
           {user && (
@@ -107,18 +99,5 @@ CardActionBar.propTypes = {
   handleDelete: func.isRequired,
   handleLike: func.isRequired,
   cardId: string.isRequired,
+  phone: string.isRequired,
 };
-
-
-
-
-          /*
-          <IconButton
-           aria-label="Call"
-           onClick={()=>{
-            handleGetCard(cardId)
-            card&& getPhoneNumber(card.phone)
-            card&& console.log(phoneNumber);
-           }}>
-          <a href={phoneNumber}><CallIcon/></a>
-          </IconButton>*/
