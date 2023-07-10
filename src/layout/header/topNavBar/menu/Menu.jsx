@@ -31,7 +31,7 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
       }}
     >
       <Box>
-        {user && (
+        {user ? (
           <>
             <MenuLink
               text="edit account"
@@ -45,7 +45,20 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
             />
             <MenuItem onClick={onLogout}>Logout</MenuItem>
           </>
-        )}
+        ) : 
+        <>
+        <MenuLink
+          text="signup"
+          navigateTo={ROUTES.SIGNUP}
+          onClick={onClose}
+        />
+        <MenuLink
+          text="login"
+          navigateTo={ROUTES.LOGIN}
+          onClick={onClose}
+        />
+      </>
+        }
       </Box>
     </MuiMenu>
   );
