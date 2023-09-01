@@ -96,6 +96,6 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use and 
 
 ## Contact
 
-If you have any questions, suggestions, or feedback, please feel free to contact the project maintainer at ofekifargan3@gmail.com.
+If you have any questions, suggestions, or feedback, please feel free to contact me at ofekifargan3@gmail.com.
 
 Happy business card designing!
